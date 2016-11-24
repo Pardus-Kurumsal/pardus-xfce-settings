@@ -1,9 +1,12 @@
 # Set default environment vars in Pardus
-if [ "$DESKTOP_SESSION" = pardus ]; then
+if [ "$XDG_CURRENT_DESKTOP" = XFCE ]; then
     # Disable GTK 3.16 overlay scrollbars
     export GTK_OVERLAY_SCROLLING=0
     # QT5 apps to use GTK style
     export QT_STYLE_OVERRIDE=gtk
     # Workaround clutter issue (LP: #1462445)
     export CLUTTER_BACKEND=x11
+    #export XDG_CONFIG_DIR for xfce desktop
+    XDG_CONFIG_DIRS=/etc/xdg/xdg-pardus-xfce:/etc/xdg
+    export XDG_CONFIG_DIRS
 fi
